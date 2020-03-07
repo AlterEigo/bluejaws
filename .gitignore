@@ -1,0 +1,14 @@
+*
+ddoc/build
+!*.c
+!*.h
+!include
+!sources
+!sources/classes
+!sources/utility
+!ddoc
+!ddoc/*
+!tests
+!Makefile
+!.gitignore
+!.gitkeep
