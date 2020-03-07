@@ -71,7 +71,7 @@ SOURCE_DIR			=	sources
 OBJECT_DIR			=	objects
 HEADER_DIR			=	include
 TESTS_DIR			=	tests
-OXDOC_DIR			=	ddoc
+OXDOC_DIR			=	docs
 GDB_ARGV			=
 
 vpath %.c $(SOURCE_DIR)

@@ -6,8 +6,8 @@ ddoc/build
 !sources
 !sources/classes
 !sources/utility
-!ddoc
-!ddoc/*
+!docs
+!docs/*
 !tests
 !Makefile
 !.gitignore
