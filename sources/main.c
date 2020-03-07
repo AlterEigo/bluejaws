@@ -29,6 +29,11 @@ int main(int argc, char **argv)
     flags = IREQ_CACHE_FLUSH;
     ii = (inquiry_info*)malloc(max_rsp * sizeof(inquiry_info));
 
+    // Performs Bluetooth device discovery and returns a list of
+    // detected devices and some basic information about them. Sets
+    // errno on error and returns -1
+    // Time of execution: 1.28 * len seconds
+    // Elements: at most max_rsp devices
     num_rsp = hci_inquiry(dev_id, len, max_rsp, NULL, &ii, flags);
     if (num_rsp < 0)
         perror("hci_inquiry");
@@ -36,6 +41,7 @@ int main(int argc, char **argv)
     for (i = 0; i < num_rsp; i++) {
         ba2str(&(ii+i)->bdaddr, addr);
         memset(name, 0, sizeof(name));
+        // Reading user-friendly name of a found device
         if (hci_read_remote_name(sock, &(ii+i)->bdaddr, sizeof(name), name, 0) < 0)
             strcpy(name, "[unknown]");
         printf("%s %s\n", addr, name);
