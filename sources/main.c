@@ -15,7 +15,10 @@ int main(int argc, char **argv)
     char addr[19] = {0};
     char name[248] = {0};
 
+    // Getting first available bluetooth adapter
     dev_id = hci_get_route(NULL);
+    // Connection to microcontroller on the specified local Bluetooth
+    // adapter (not to an external device!)
     sock = hci_open_dev(dev_id);
     if (dev_id < 0 || sock < 0) {
         perror("opening socket");
